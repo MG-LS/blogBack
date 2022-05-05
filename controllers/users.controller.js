@@ -1,4 +1,5 @@
 const userServices = require("../service/User.services");
+const User = require("../models/User.model");
 const { validationResult } = require("express-validator");
 const ApiError = require("../exceptions/api.error");
 
@@ -74,6 +75,17 @@ class UserController {
       res.json(users);
     } catch (error) {
       next(error);
+    }
+  }
+  async addImage(req, res) {
+    try {
+      await User.findByIdAndUpdate(req.params.id, {
+        img: req.file.path,
+      });
+      const getImg = await User.findById(req.params.id);
+      res.json(getImg);
+    } catch (e) {
+      res.json(`ошибка в юезр контроллерс адд имейдж ${e.toString()}`);
     }
   }
 }

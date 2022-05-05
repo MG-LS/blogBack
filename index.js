@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const errorMiddleware = require("./middlewares/error.middleware");
 const cookieParser = require("cookie-parser");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(require("./routes/users.route"));
 app.use(errorMiddleware);
+app.use("/image", express.static(path.resolve(__dirname, "image")));
 
 mongoose
   .connect(

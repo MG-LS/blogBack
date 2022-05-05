@@ -15,6 +15,10 @@ const userSchema = new Schema({
     default: false,
   },
   activationLink: String,
+  img: {
+    type: String,
+    default: null,
+  },
 });
 
 module.exports = model("User", userSchema);

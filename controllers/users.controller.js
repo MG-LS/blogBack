@@ -87,7 +87,7 @@ class UserController {
       next(error);
     }
   }
-  
+
   async addImage(req, res) {
     try {
       await User.findByIdAndUpdate(req.params.id, {
@@ -97,22 +97,22 @@ class UserController {
       res.json(getImg);
     } catch (e) {
       res.json(`ошибка в юезр контроллерс адд имейдж ${e.toString()}`);
-
+    }
+  }
   async addSub(req, res, next) {
     try {
       // console.log(UserModel)
       await UserModel.findByIdAndUpdate(req.params.id, {
-        $push: { subscrib: req.user.id},
+        $push: { subscrib: req.user.id },
       });
       await UserModel.findByIdAndUpdate(req.user.id, {
-        $push: { subscript: req.params.id }
-      })
-      const getUser = await UserModel.findById(req.params.id)
+        $push: { subscript: req.params.id },
+      });
+      const getUser = await UserModel.findById(req.params.id);
       res.json(getUser);
     } catch (error) {
       next(error);
     }
-    
   }
   async deleteSub(req, res, next) {
     try {
@@ -120,9 +120,9 @@ class UserController {
         $pull: { subscrib: req.user.id },
       });
       await UserModel.findByIdAndUpdate(req.user.id, {
-        $pull: { subscript: req.params.id }
-      })
-      const deleteSub = await UserModel.findById(req.params.id)
+        $pull: { subscript: req.params.id },
+      });
+      const deleteSub = await UserModel.findById(req.params.id);
       res.json(deleteSub);
     } catch (error) {
       next(error);

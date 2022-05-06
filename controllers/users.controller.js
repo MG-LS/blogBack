@@ -11,11 +11,21 @@ class UserController {
       if (!errors.isEmpty()) {
         return next(ApiError.BadRequest(`Ошибка валидации!`, errors.array()));
       }
-      const { email, password, nickname, img, subscrib, subscript, blog } = req.body;
+      const {
+        email,
+        password,
+        nickname,
+        img,
+        subscrib,
+        profileStatus,
+        subscript,
+        blog,
+      } = req.body;
       const userData = await userServices.reg(
         email,
         password,
         nickname,
+        profileStatus,
         img,
         subscrib,
         subscript,
@@ -38,6 +48,7 @@ class UserController {
         password: req.body.password,
         nickname: req.body.nickname,
         img: req.body.img,
+        profileStatus: req.body.profileStatus,
         subscrib: req.body.subscrib,
         subscript: req.body.subscript,
         blog: req.body.blog,

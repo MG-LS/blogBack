@@ -1,3 +1,4 @@
+const { mongoose } = require("mongoose");
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
@@ -9,6 +10,29 @@ const userSchema = new Schema({
   password: {
     type: String,
     required: true,
+  },
+  nickname: {
+    type: String,
+    unique: true,
+  },
+  img: {
+    type: String,
+  },
+  subscrib: [
+    {
+      ref: "User",
+      type: mongoose.Schema.Types.ObjectId,
+    },
+  ],
+  subscript: [
+    {
+      ref: "User",
+      type: mongoose.Schema.Types.ObjectId,
+    },
+  ],
+  blog: {
+    ref: "Blog",
+    type: mongoose.Schema.Types.ObjectId,
   },
   isActivated: {
     type: Boolean,

@@ -92,6 +92,9 @@ class UserController {
       await UserModel.findByIdAndUpdate(req.params.id, {
         $push: { subscrib: req.user.id},
       });
+      await UserModel.findByIdAndUpdate(req.user.id, {
+        $push: { subscript: req.params.id }
+      })
       const getUser = await UserModel.findById(req.params.id)
       res.json(getUser);
     } catch (error) {
@@ -104,6 +107,9 @@ class UserController {
       await UserModel.findByIdAndUpdate(req.params.id, {
         $pull: { subscrib: req.user.id },
       });
+      await UserModel.findByIdAndUpdate(req.user.id, {
+        $pull: { subscript: req.params.id }
+      })
       const deleteSub = await UserModel.findById(req.params.id)
       res.json(deleteSub);
     } catch (error) {

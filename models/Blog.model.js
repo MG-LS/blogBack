@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 const blogSchema = mongoose.Schema({
   img: String,
-  like: {
+  likes: [{
     ref: "User",
     type: mongoose.Schema.Types.ObjectId,
-  },
+  }],
   comm: {
     ref: "Comm",
     type: mongoose.Schema.Types.ObjectId,

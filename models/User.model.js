@@ -13,7 +13,7 @@ const userSchema = new Schema({
   },
   nickname: {
     type: String,
-    default: "ВАШ НИК"
+    default: "ВАШ НИК",
   },
   img: {
     type: String,
@@ -42,6 +42,10 @@ const userSchema = new Schema({
   img: {
     type: String,
     default: null,
+  },
+  profileStatus: {
+    type: Boolean,
+    default: false,
   },
 });
 

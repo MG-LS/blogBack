@@ -5,10 +5,6 @@ const blogSchema = mongoose.Schema({
     ref: "User",
     type: mongoose.Schema.Types.ObjectId,
   }],
-  comm: {
-    ref: "Comm",
-    type: mongoose.Schema.Types.ObjectId,
-  },
   user: {
     ref: "User",
     type: mongoose.Schema.Types.ObjectId,

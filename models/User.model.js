@@ -11,11 +11,17 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  nickname: {
+   nickname: {
     type: String,
     default: null,
     unique: true
   },
+  subscrib: [
+    {
+      ref: "User",
+      type: mongoose.Schema.Types.ObjectId,
+    },
+  ],
   subscrib: [
     {
       ref: "User",
@@ -40,6 +46,10 @@ const userSchema = new Schema({
   img: {
     type: String,
     default: null,
+  },
+  profileStatus: {
+    type: Boolean,
+    default: false,
   },
 });
 

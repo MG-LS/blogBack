@@ -13,10 +13,8 @@ const userSchema = new Schema({
   },
   nickname: {
     type: String,
-    default: "ВАШ НИК"
-  },
-  img: {
-    type: String,
+    default: null,
+    unique: true
   },
   subscrib: [
     {

@@ -7,7 +7,16 @@ const UserDto = require("../dtos/user.dto");
 const ApiError = require("../exceptions/api.error");
 
 class UserService {
-  async reg(email, password, nickname, img, subscrib, subscript, blog) {
+  async reg(
+    email,
+    password,
+    nickname,
+    img,
+    subscrib,
+    subscript,
+    profileStatus,
+    blog
+  ) {
     const candidate = await UserModel.findOne({ email });
     if (candidate) {
       throw ApiError.BadRequest(
@@ -28,6 +37,7 @@ class UserService {
       email,
       password: hashPassword,
       nickname,
+      profileStatus,
       img,
       subscrib,
       subscript,

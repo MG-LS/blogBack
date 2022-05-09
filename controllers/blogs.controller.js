@@ -30,7 +30,6 @@ module.exports.blogController = {
       const prod = await Blog.findByIdAndUpdate(req.params.id, {
         img: req.body.img,
         likes: req.body.likes,
-        comm: req.body.comm,
         user: req.body.user,
         title: req.body.title,
         text: req.body.text,

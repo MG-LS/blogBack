@@ -117,10 +117,10 @@ class UserController {
 
   async addImage(req, res) {
     try {
-      await User.findByIdAndUpdate(req.params.id, {
+      await UserModel.findByIdAndUpdate(req.params.id, {
         img: req.file.path,
       });
-      const getImg = await User.findById(req.params.id);
+      const getImg = await UserModel.findById(req.params.id);
       res.json(getImg);
     } catch (e) {
       res.json(`ошибка в юезр контроллерс адд имейдж ${e.toString()}`);

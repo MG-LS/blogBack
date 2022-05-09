@@ -11,13 +11,17 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  nickname: {
+   nickname: {
     type: String,
-    default: "ВАШ НИК",
+    default: null,
+    unique: true
   },
-  img: {
-    type: String,
-  },
+  subscrib: [
+    {
+      ref: "User",
+      type: mongoose.Schema.Types.ObjectId,
+    },
+  ],
   subscrib: [
     {
       ref: "User",

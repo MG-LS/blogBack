@@ -11,11 +11,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  nickname: {
+   nickname: {
     type: String,
-    default: "ВАШ НИК",
+    default: null,
+    unique: true
   },
-
   subscrib: [
     {
       ref: "User",

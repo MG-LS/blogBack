@@ -20,10 +20,15 @@ class UserService {
     const candidate = await UserModel.findOne({ email });
     if (candidate) {
       throw ApiError.BadRequest(
-        `Пользователь с таким ${email} уже существует!`
+        `Пользователь ${email} уже существует!`
       );
     }
-
+    const candidatenick = await UserModel.findOne({ nickname });
+    if (candidatenick) {
+      throw ApiError.BadRequest(
+        `Пользователь ${nickname} уже существует!`
+      );
+    }
     const hashPassword = await bcrypt.hash(password, 3);
 
     const activationLink = uuid.v4();

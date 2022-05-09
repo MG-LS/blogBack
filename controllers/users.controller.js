@@ -126,6 +126,7 @@ class UserController {
       res.json(`ошибка в юезр контроллерс адд имейдж ${e.toString()}`);
     }
   }
+
   async addSub(req, res, next) {
     try {
       // console.log(UserModel)

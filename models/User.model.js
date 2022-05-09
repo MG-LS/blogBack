@@ -22,12 +22,6 @@ const userSchema = new Schema({
       type: mongoose.Schema.Types.ObjectId,
     },
   ],
-  subscrib: [
-    {
-      ref: "User",
-      type: mongoose.Schema.Types.ObjectId,
-    },
-  ],
   subscript: [
     {
       ref: "User",

@@ -15,9 +15,7 @@ const userSchema = new Schema({
     type: String,
     default: "ВАШ НИК",
   },
-  img: {
-    type: String,
-  },
+
   subscrib: [
     {
       ref: "User",

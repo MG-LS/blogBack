@@ -24,7 +24,7 @@ mongoose
     "mongodb+srv://admin:admin@cluster0.nxclk.mongodb.net/autorizationTS?authSource=admin&replicaSet=atlas-pzfzfv-shard-0&readPreference=primary&ssl=true"
   )
   .then(() => console.log("Успешное соединение..."))
-  .catch(() => console.log("Пал хила"));
+  .catch(() => console.log("Пал Бу"));
 
 app.listen(PORT, () => {
   console.log("Сервер запущен на http://localhost:8000/");

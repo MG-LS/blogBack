@@ -13,9 +13,7 @@ module.exports.blogController = {
   addBlog: async (req, res) => {
     try {
       const data = await Blog.create({
-        img: req.body.img,
-        likes: req.body.likes,
-        comm: req.body.comm,
+        img: req.file.path,
         user: req.body.user,
         title: req.body.title,
         text: req.body.text,
@@ -67,4 +65,5 @@ module.exports.blogController = {
       console.log(err);
     }
   },
+
 }

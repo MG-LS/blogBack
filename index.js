@@ -14,12 +14,14 @@ app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use(require("./routes/users.route"));
+app.use(require("./routes/blogs.route"));
+
 app.use(errorMiddleware);
 app.use("/image", express.static(path.resolve(__dirname, "image")));
 
 mongoose
   .connect(
-    "mongodb+srv://admin:admin@cluster0.nxclk.mongodb.net/autorizationTS?authSource=admin&replicaSet=atlas-pzfzfv-shard-0&readPreference=primary&ssl=true"
+    "mongodb+srv://mgls:46325899@cluster0.od801.mongodb.net/Blog"
   )
   .then(() => console.log("Успешное соединение..."))
   .catch(() => console.log("Пал хила"));

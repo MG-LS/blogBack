@@ -21,7 +21,7 @@ app.use("/image", express.static(path.resolve(__dirname, "image")));
 
 mongoose
   .connect(
-    "mongodb+srv://mgls:46325899@cluster0.od801.mongodb.net/Blog"
+    "mongodb+srv://admin:admin@cluster0.nxclk.mongodb.net/autorizationTS?authSource=admin&replicaSet=atlas-pzfzfv-shard-0&readPreference=primary&ssl=true"
   )
   .then(() => console.log("Успешное соединение..."))
   .catch(() => console.log("Пал хила"));

@@ -21,9 +21,9 @@ router.post("/login", UserController.login);
 router.post("/logout", UserController.logout);
 router.get("/activate/:link", UserController.activate);
 router.get("/refresh", UserController.refresh);
-router.get("/users", authMiddleware, UserController.getUsers);
-router.patch('/user/:id', authMiddleware, usersController.addSub);
-router.delete('/user/:id', authMiddleware, usersController.deleteSub);
-router.patch('/editMyProf/:id', authMiddleware, usersController.editUser)
+router.get("/users", UserController.getUsers);
+router.patch("/user/:id", authMiddleware, usersController.addSub);
+router.delete("/user/:id", authMiddleware, usersController.deleteSub);
+router.patch("/editMyProf/:id", authMiddleware, usersController.editUser);
 
 module.exports = router;

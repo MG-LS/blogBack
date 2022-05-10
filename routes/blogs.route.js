@@ -1,10 +1,11 @@
 const { Router } = require("express");
 
 const { blogController } = require("../controllers/blogs.controller");
+const fileMiddleware = require("../middlewares/file.middleware");
 
 const router = Router();
 
-router.post("/blog", blogController.addBlog);
+router.post("/blog", fileMiddleware.single('img'), blogController.addBlog);
 router.get("/blog", blogController.getBlog);
 router.patch("/blog/:id", blogController.changeBlog);
 router.delete("/blog/:id", blogController.deleteBlog);

@@ -24,6 +24,6 @@ router.get("/refresh", UserController.refresh);
 router.get("/users", UserController.getUsers);
 router.patch("/user/:id", authMiddleware, usersController.addSub);
 router.delete("/user/:id", authMiddleware, usersController.deleteSub);
-router.patch("/editMyProf/:id", authMiddleware, usersController.editUser);
+router.patch("/editMyProf/:id", usersController.editUser);
 
 module.exports = router;

@@ -48,9 +48,10 @@ module.exports.blogController = {
   addLike: async (req, res) => {
     try {
       await Blog.findByIdAndUpdate(req.params.id, {
-        $push: { likes: req.params.userId },
+        $push: { likes: req.body.likes },
       });
-      res.json("Лайк");
+      const blog = await Blog.findById(req.params.id)
+      res.json(blog);
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +59,7 @@ module.exports.blogController = {
   deleteLike: async (req, res) => {
     try {
       await Blog.findByIdAndUpdate(req.params.id, {
-        $pull: { likes: req.params.userId },
+        $pull: { likes: req.body.likes },
       });
       res.json("Лайк убран");
     } catch (err) {

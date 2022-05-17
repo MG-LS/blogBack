@@ -10,11 +10,12 @@ require("dotenv").config();
 
 const PORT = process.env.PORT;
 
-app.use(cors({credentials: true, origin: process.env.CLIENT_URL}));
+app.use(cors({ credentials: true, origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(require("./routes/users.route"));
 app.use(require("./routes/blogs.route"));
+app.use(require("./routes/reviews.route"));
 
 app.use(errorMiddleware);
 app.use("/image", express.static(path.resolve(__dirname, "image")));

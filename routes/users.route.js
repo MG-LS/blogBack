@@ -20,6 +20,7 @@ router.patch(
 router.post("/login", UserController.login);
 router.post("/logout", UserController.logout);
 router.get("/activate/:link", UserController.activate);
+router.get("/user/:id", UserController.getOneUser);
 router.get("/refresh", UserController.refresh);
 router.get("/users", UserController.getUsers);
 router.patch("/user/:id", authMiddleware, usersController.addSub);

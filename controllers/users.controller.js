@@ -115,6 +115,16 @@ class UserController {
     }
   }
 
+  async getOneUser(req, res, next) {
+    try {
+      const users = await UserModel.findById(req.params.id);
+      res.json(users)
+    } catch (error) {
+      next(error);
+      
+    }
+  }
+
   async addImage(req, res) {
     try {
       await UserModel.findByIdAndUpdate(req.params.id, {

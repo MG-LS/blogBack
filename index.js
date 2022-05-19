@@ -15,6 +15,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(require("./routes/users.route"));
 app.use(require("./routes/blogs.route"));
+app.use(require("./routes/comments.route"));
 app.use(require("./routes/reviews.route"));
 
 app.use(errorMiddleware);

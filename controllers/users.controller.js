@@ -118,10 +118,9 @@ class UserController {
   async getOneUser(req, res, next) {
     try {
       const users = await UserModel.findById(req.params.id);
-      res.json(users)
+      res.json(users);
     } catch (error) {
       next(error);
-      
     }
   }
 
@@ -139,12 +138,11 @@ class UserController {
 
   async addSub(req, res, next) {
     try {
-      // console.log(UserModel)
       await UserModel.findByIdAndUpdate(req.params.id, {
-        $push: { subscrib: req.user.id },
+        $push: { subscrib: [{ subscribtion: req.user.id }] },
       });
       await UserModel.findByIdAndUpdate(req.user.id, {
-        $push: { subscript: req.params.id },
+        $push: { subscript: [{ subscription: req.params.id }] },
       });
       const getUser = await UserModel.findById(req.params.id);
       res.json(getUser);
@@ -155,10 +153,10 @@ class UserController {
   async deleteSub(req, res, next) {
     try {
       await UserModel.findByIdAndUpdate(req.params.id, {
-        $pull: { subscrib: req.user.id },
+        $pull: { subscrib: { subscribtion: req.user.id } },
       });
       await UserModel.findByIdAndUpdate(req.user.id, {
-        $pull: { subscript: req.params.id },
+        $pull: { subscript: { subscription: req.params.id } },
       });
       const deleteSub = await UserModel.findById(req.params.id);
       res.json(deleteSub);

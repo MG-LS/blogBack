@@ -20,14 +20,20 @@ const userSchema = new Schema(
     },
     subscrib: [
       {
-        ref: "User",
-        type: mongoose.Schema.Types.ObjectId,
+        _id: false,
+        subscribtion: {
+          ref: "User",
+          type: mongoose.Schema.Types.ObjectId,
+        },
       },
     ],
     subscript: [
       {
-        ref: "User",
-        type: mongoose.Schema.Types.ObjectId,
+        _id: false,
+        subscription: {
+          ref: "User",
+          type: mongoose.Schema.Types.ObjectId,
+        },
       },
     ],
     blog: {

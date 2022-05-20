@@ -47,7 +47,7 @@ const userSchema = new Schema(
     activationLink: String,
     img: {
       type: String,
-      default: null,
+      default: 'https://dmitrovipoteka.ru/wp-content/uploads/2016/09/default-user-img.jpg',
     },
     profileStatus: {
       type: Boolean,
